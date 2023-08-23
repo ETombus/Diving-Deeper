@@ -11,7 +11,7 @@ public class Submarine : MonoBehaviour
 
     private Vector2 dir;
     private float speed = 5;
-    private float maxVelocity = 10f;
+    private float maxVelocity = 15f;
 
     public bool isDead;
 
@@ -28,16 +28,7 @@ public class Submarine : MonoBehaviour
             dir.x = Input.GetAxisRaw("Horizontal");
             dir.y = Input.GetAxisRaw("Vertical");
 
-            if (dir.y == 0 && dir.x == 0)
-            {
-                Vector2 lerpForce = Vector2.Lerp(Vector2.zero, rb.velocity, Time.deltaTime);
-
-                rb.velocity -= lerpForce;
-            }
-            else
-            {
-                rb.velocity += dir * speed * Time.deltaTime;
-            }
+            rb.velocity += dir * speed * Time.deltaTime;
 
             ClampVelocity();
         }
