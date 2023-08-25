@@ -22,7 +22,5 @@ public class RadarObj : MonoBehaviour
             radarObj.transform.localScale = new Vector2(0.2f, 0.2f);
         else
             radarObj.transform.localScale = new Vector2(0.1f, 0.1f);
-
-        Debug.Log((Vector2.Distance(transform.position, obj.transform.position)));
     }
 }
