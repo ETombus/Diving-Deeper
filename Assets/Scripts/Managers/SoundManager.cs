@@ -7,9 +7,9 @@ public static class SoundManager
 {
     public enum Sound
     {
-        example1,
-        example2,
-        example3,
+        SurfaceAmbience,
+        ShallowAmbience,
+        DeepAmbience,
     }
 
     public static void PlaySound(Sound sound)
@@ -20,7 +20,7 @@ public static class SoundManager
         aS.PlayOneShot(GetAudioClip(sound));
     }
 
-    private static AudioClip GetAudioClip(Sound sound)
+    public static AudioClip GetAudioClip(Sound sound)
     {
         foreach(GameAssets.SoundAudioClip soundAudioClip in GameAssets.i.soundAudioClipArray)
         {
