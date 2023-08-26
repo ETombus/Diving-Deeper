@@ -7,9 +7,8 @@ public static class SoundManager
 {
     public enum Sound
     {
-        SurfaceAmbience,
-        ShallowAmbience,
-        DeepAmbience,
+        Implosion,
+        Drown,
     }
 
     public static void PlaySound(Sound sound)
