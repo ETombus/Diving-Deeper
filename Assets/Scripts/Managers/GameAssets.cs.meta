@@ -1,0 +1,20 @@
+fileFormatVersion: 2
+guid: d6c400a6c4717494998886a5a4e2f993
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - playerRight: {fileID: -1547881746, guid: 5ab9b619c2d85b046918611185e6e874, type: 3}
+  - playerLeft: {fileID: -1228268681, guid: 5ab9b619c2d85b046918611185e6e874, type: 3}
+  - playerUp: {fileID: 773269915, guid: 5ab9b619c2d85b046918611185e6e874, type: 3}
+  - playerDown: {fileID: 206148320, guid: 5ab9b619c2d85b046918611185e6e874, type: 3}
+  - gunRight: {fileID: 1737438286, guid: 4386f37130922994bb5b5468b7bc9aa3, type: 3}
+  - gunUp: {fileID: -1439144133, guid: 4386f37130922994bb5b5468b7bc9aa3, type: 3}
+  - gunDown: {fileID: -1703309980, guid: 4386f37130922994bb5b5468b7bc9aa3, type: 3}
+  - sfx: {instanceID: 0}
+  - music: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

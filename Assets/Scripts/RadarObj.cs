@@ -17,10 +17,10 @@ public class RadarObj : MonoBehaviour
         transform.rotation = Quaternion.Euler(0, 0, angle + 90);
 
         if (Vector2.Distance(transform.position, obj.transform.position) < smallDist)
-            radarObj.transform.localScale = new Vector2(0.3f, 0.3f);
+            radarObj.transform.localScale = new Vector2(1.3f, 1.3f);
         else if (Vector2.Distance(transform.position, obj.transform.position) < mediumDist)
-            radarObj.transform.localScale = new Vector2(0.2f, 0.2f);
+            radarObj.transform.localScale = new Vector2(0.8f, 0.8f);
         else
-            radarObj.transform.localScale = new Vector2(0.1f, 0.1f);
+            radarObj.transform.localScale = new Vector2(0.4f, 0.4f);
     }
 }
