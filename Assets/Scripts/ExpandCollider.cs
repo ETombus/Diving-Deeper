@@ -61,7 +61,6 @@ public class ExpandCollider : MonoBehaviour
         {
             // Snap to the exact target size
             boxCol2D.size = targetSize;
-            isExpanding = false; // Stop the expansion
         }
     }
 }
