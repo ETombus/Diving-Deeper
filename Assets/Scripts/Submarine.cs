@@ -52,10 +52,9 @@ public class Submarine : MonoBehaviour
                 diverScript.gameObject.transform.position = transform.position;
                 diverScript.spriteRenderer.enabled = true;
                 diverScript.SetDiverCamera();
-
-                Invoke(nameof(ResetJustSwappedBool), 1f);
+                diverScript.Drowning();
+                Invoke(nameof(ResetJustSwappedBool), 0.3f);
             }
-
         }
     }
 
@@ -65,6 +64,18 @@ public class Submarine : MonoBehaviour
         dir.y = Mathf.Clamp(rb.velocity.y, -maxVelocity, maxVelocity);
         rb.velocity = dir;
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Wall"))
+        {
+            isDead = true;
+            animator.SetTrigger("Implosion");
+            SoundManager.PlaySound(SoundManager.Sound.Implosion);
+            GameObject.Find("FadeInOutCanvas").GetComponent<FadeInOutScript>().FadeOut();
+        }
+    }
+
 
     public void SetSubCamera()
     {

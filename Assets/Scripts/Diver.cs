@@ -74,10 +74,39 @@ public class Diver : MonoBehaviour
                 spriteRenderer.enabled = false;
                 subScript.SetSubCamera();
                 rb.velocity = Vector3.zero;
-                Invoke(nameof(ResetJustSwappedBool), 1f);
+                GameObject.Find("FadeInOutCanvas").GetComponent<FadeInOutScript>().IsDrowning(false);
+                Invoke(nameof(ResetJustSwappedBool), 0.3f);
 
             }
         }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Collectable"))
+        {
+            points++;
+            Destroy(radarDic[collision.gameObject]);
+            Destroy(collision.gameObject);
+        }
+
+        if (collision.gameObject.CompareTag("Sub"))
+        {
+            inSubRange = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Sub"))
+        {
+            inSubRange = false;
+        }
+    }
+
+    public void Drowning()
+    {
+        GameObject.Find("FadeInOutCanvas").GetComponent<FadeInOutScript>().IsDrowning(true);
     }
 
     public void SetDiverCamera()
@@ -108,28 +137,7 @@ public class Diver : MonoBehaviour
         cam.orthographicSize = 0.5f;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("Collectable"))
-        {
-            points++;
-            Destroy(radarDic[collision.gameObject]);
-            Destroy(collision.gameObject);
-        }
 
-        if (collision.gameObject.CompareTag("Sub"))
-        {
-            inSubRange = true;
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("Sub"))
-        {
-            inSubRange = false;
-        }
-    }
 
     private void ResetJustSwappedBool()
     {
