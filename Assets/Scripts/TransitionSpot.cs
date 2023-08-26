@@ -7,7 +7,7 @@ public class TransitionSpot : MonoBehaviour
     public AudioClip transitionToBelow, transitionToAbove;
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))          
+        if (collision.CompareTag("Sub"))          
         {
             if (collision.transform.position.y > transform.position.y)
                 AmbienceManager.instance.SwapTrack(transitionToAbove);
