@@ -56,21 +56,22 @@ public class Diver : MonoBehaviour
                 visibleDiver.transform.rotation = Quaternion.Slerp(visibleDiver.transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
             }
 
-            if (Input.GetKeyDown("space"))
+            swimTimer += Time.deltaTime;
+            if (Input.GetKeyDown("space") && swimTimer > 0.3f)
             {
                 spriteRenderer.sprite = swimmingSprites[1];
                 Vector2 force = (visibleDiver.transform.rotation * Vector2.up) * 3f;
                 rb.AddForce(force, ForceMode2D.Force);
+                swimTimer = 0f;
             }
 
             float x = Mathf.Clamp(rb.velocity.x, -maxVelocity, maxVelocity);
             float y = Mathf.Clamp(rb.velocity.y, -maxVelocity, maxVelocity);
             rb.velocity = new Vector2(x, y);
 
-            swimTimer += Time.deltaTime;
-            if (Input.GetKeyDown(KeyCode.E) && Vector2.Distance(subScript.transform.position, transform.position) < 1f && !subScript.justSwapped && swimTimer < 0.3f)
+            if (Input.GetKeyDown(KeyCode.E) && Vector2.Distance(subScript.transform.position, transform.position) < 1f && !subScript.justSwapped)
             {
-                swimTimer = 0f;
+
                 subScript.justSwapped = true;
                 subScript.isSwimming = false;
                 spriteRenderer.enabled = false;
@@ -80,7 +81,8 @@ public class Diver : MonoBehaviour
                 Invoke(nameof(ResetJustSwappedBool), 0.3f);
             }
 
-            spriteRenderer.sprite = swimmingSprites[0];
+            if (swimTimer > 0.3f)
+                spriteRenderer.sprite = swimmingSprites[0];
         }
     }
 
