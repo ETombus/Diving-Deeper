@@ -26,8 +26,6 @@ public class Diver : MonoBehaviour
     private float maxVelocity = 1.5f;
     private float rotationSpeed = 5f;
 
-    private bool inSubRange;
-
     void Start()
     {
         cam = Camera.main;
@@ -67,7 +65,7 @@ public class Diver : MonoBehaviour
             rb.velocity = new Vector2(x, y);
 
 
-            if (Input.GetKeyDown(KeyCode.E) && inSubRange && !subScript.justSwapped)
+            if (Input.GetKeyDown(KeyCode.E) && Vector2.Distance(subScript.transform.position, transform.position) < 1f && !subScript.justSwapped)
             {
                 subScript.justSwapped = true;
                 subScript.isSwimming = false;
@@ -88,19 +86,6 @@ public class Diver : MonoBehaviour
             PointMaster.Instance.PointUp();
             Destroy(radarDic[collision.gameObject]);
             Destroy(collision.gameObject);
-        }
-
-        if (collision.gameObject.CompareTag("Sub"))
-        {
-            inSubRange = true;
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("Sub"))
-        {
-            inSubRange = false;
         }
     }
 

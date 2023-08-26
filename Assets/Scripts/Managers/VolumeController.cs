@@ -30,9 +30,9 @@ public class VolumeController : MonoBehaviour
         (Resources.Load("MainMixer") as AudioMixer).SetFloat("MusicVolume", Mathf.Log10(musicSlider.value) * 20);
     }
 
-    public void SfxSlider(float value)
+    public void SfxSlider()
     {
-        PlayerPrefs.SetFloat("MusicVolume", value);
-        (Resources.Load("MainMixer") as AudioMixer).SetFloat("SFXVolume", Mathf.Log10(value) * 20);
+        PlayerPrefs.SetFloat("MusicVolume", sfxSlider.value);
+        (Resources.Load("MainMixer") as AudioMixer).SetFloat("SFXVolume", Mathf.Log10(sfxSlider.value) * 20);
     }
 }
