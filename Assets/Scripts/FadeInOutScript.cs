@@ -49,7 +49,7 @@ public class FadeInOutScript : MonoBehaviour
     {
         SoundManager.PlaySound(SoundManager.Sound.Drown);
         sub.isDead = true;
-        Invoke(nameof(FadeOutFinished), 1);
+        Invoke(nameof(FadeOutFinished), 4);
     }
 
 }
