@@ -41,9 +41,9 @@ public class Submarine : MonoBehaviour
             ClampVelocity();
 
             if (dir.x < 0)
-                spriteRenderer.flipX = false;
-            else if (dir.x > 0)
                 spriteRenderer.flipX = true;
+            else if (dir.x > 0)
+                spriteRenderer.flipX = false;
 
             if (Input.GetKeyDown(KeyCode.E) && !justSwapped)
             {
