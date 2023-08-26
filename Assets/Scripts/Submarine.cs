@@ -69,13 +69,17 @@ public class Submarine : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Wall"))
         {
-            isDead = true;
-            animator.SetTrigger("Implosion");
-            SoundManager.PlaySound(SoundManager.Sound.Implosion);
-            GameObject.Find("FadeInOutCanvas").GetComponent<FadeInOutScript>().FadeOut();
+            Died();
         }
     }
 
+    public void Died()
+    {
+        isDead = true;
+        animator.SetTrigger("Implosion");
+        SoundManager.PlaySound(SoundManager.Sound.Implosion);
+        GameObject.Find("FadeInOutCanvas").GetComponent<FadeInOutScript>().FadeOut();
+    }
 
     public void SetSubCamera()
     {
