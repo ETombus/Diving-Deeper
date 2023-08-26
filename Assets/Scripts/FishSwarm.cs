@@ -16,10 +16,10 @@ public class FishSwarm : MonoBehaviour
     void Update()
     {
         if (movingRight)
-            transform.Translate(Vector2.right * 3f * Time.deltaTime);
+            transform.Translate(Vector2.right * 2.5f * Time.deltaTime);
 
         if (!movingRight)
-            transform.Translate(-Vector2.right * 3f * Time.deltaTime);
+            transform.Translate(-Vector2.right * 2.5f * Time.deltaTime);
     }
 
     public void ResetPosition()
