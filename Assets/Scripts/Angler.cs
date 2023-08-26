@@ -4,13 +4,11 @@ using UnityEngine;
 
 public class Angler : MonoBehaviour
 {
-    public GameObject angler;
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.CompareTag("Sub"))
         {
-            angler.SetActive(true);
+            GetComponent<Animator>().SetTrigger("attack");
         }
     }
 }

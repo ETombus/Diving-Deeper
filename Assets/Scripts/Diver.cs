@@ -110,7 +110,7 @@ public class Diver : MonoBehaviour
         {
             float t = Mathf.Clamp01(elapsedTime / lerpDuration);
 
-            float newSize = Mathf.Lerp(5, 0.5f, t);
+            float newSize = Mathf.Lerp(20, 1f, t);
 
             cam.orthographicSize = newSize;
 
@@ -119,7 +119,7 @@ public class Diver : MonoBehaviour
             yield return null; // Wait for the next frame
         }
 
-        cam.orthographicSize = 0.5f;
+        cam.orthographicSize = 1f;
     }
 
 

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.U2D;
 using UnityEngine.UIElements;
 
 public class Submarine : MonoBehaviour
@@ -76,6 +77,8 @@ public class Submarine : MonoBehaviour
     public void Died()
     {
         isDead = true;
+        GetComponent<SpriteRenderer>().sprite = null;
+        GetComponent<Collider2D>().isTrigger = true;
         animator.SetTrigger("Implosion");
         SoundManager.PlaySound(SoundManager.Sound.Implosion);
         GameObject.Find("FadeInOutCanvas").GetComponent<FadeInOutScript>().FadeOut();
@@ -100,7 +103,7 @@ public class Submarine : MonoBehaviour
         {
             float t = Mathf.Clamp01(elapsedTime / lerpDuration);
 
-            float newSize = Mathf.Lerp(0.5f, 5, t);
+            float newSize = Mathf.Lerp(1f, 20, t);
 
             cam.orthographicSize = newSize;
 
@@ -109,7 +112,7 @@ public class Submarine : MonoBehaviour
             yield return null; // Wait for the next frame
         }
 
-        cam.orthographicSize = 5;
+        cam.orthographicSize = 20;
     }
 
     private void ResetJustSwappedBool()
