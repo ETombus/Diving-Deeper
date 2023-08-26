@@ -154,7 +154,7 @@ Transform:
   m_Children:
   - {fileID: 874030869}
   m_Father: {fileID: 1192660847}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &180728942
 MonoBehaviour:
@@ -482,7 +482,7 @@ Transform:
   m_Children:
   - {fileID: 822040413}
   m_Father: {fileID: 1192660847}
-  m_RootOrder: 3
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &487060736
 MonoBehaviour:
@@ -761,7 +761,7 @@ Transform:
   m_Children:
   - {fileID: 285673005}
   m_Father: {fileID: 1192660847}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &571710991
 MonoBehaviour:
@@ -1089,7 +1089,7 @@ Transform:
   m_Children:
   - {fileID: 191046577}
   m_Father: {fileID: 1192660847}
-  m_RootOrder: 5
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &890443983
 MonoBehaviour:
@@ -1351,6 +1351,16 @@ MonoBehaviour:
   subScript: {fileID: 1192660845}
   visibleDiver: {fileID: 1367373727}
   visibility: {fileID: 1078609887}
+  radarSquares:
+  - {fileID: 1345178741}
+  - {fileID: 978224544}
+  - {fileID: 768540076}
+  - {fileID: 441103352}
+  radarDots:
+  - {fileID: 890443981}
+  - {fileID: 571710989}
+  - {fileID: 180728940}
+  - {fileID: 487060734}
   spriteRenderer: {fileID: 1367373732}
   points: 0
 --- !u!58 &1108016836
@@ -1613,10 +1623,10 @@ Transform:
   m_Children:
   - {fileID: 1108016834}
   - {fileID: 1078609888}
+  - {fileID: 890443982}
+  - {fileID: 571710990}
   - {fileID: 180728941}
   - {fileID: 487060735}
-  - {fileID: 571710990}
-  - {fileID: 890443982}
   - {fileID: 1162796349}
   m_Father: {fileID: 0}
   m_RootOrder: 0

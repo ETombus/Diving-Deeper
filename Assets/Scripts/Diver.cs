@@ -10,6 +10,10 @@ public class Diver : MonoBehaviour
     [SerializeField] private GameObject visibleDiver;
     [SerializeField] private GameObject visibility;
 
+    [SerializeField] private List<GameObject> radarSquares = new List<GameObject>();
+    [SerializeField] private List<GameObject> radarDots = new List<GameObject>();
+    private Dictionary<GameObject, GameObject> radarDic = new Dictionary<GameObject, GameObject>();
+
     private Camera cam;
     private Rigidbody2D rb;
     private Animator animator;
@@ -32,6 +36,11 @@ public class Diver : MonoBehaviour
 
         animator = visibleDiver.GetComponent<Animator>();
         spriteRenderer = visibleDiver.GetComponent<SpriteRenderer>();
+
+        for (int i = 0; i < radarDots.Count; i++)
+        {
+            radarDic.Add(radarSquares[i], radarDots[i]);
+        }
     }
 
     void Update()
@@ -103,8 +112,9 @@ public class Diver : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Collectable"))
         {
-            Collect(collision.gameObject);
-            collision.gameObject.SetActive(false);
+            points++;
+            Destroy(radarDic[collision.gameObject]);
+            Destroy(collision.gameObject);
         }
 
         if (collision.gameObject.CompareTag("Sub"))
@@ -112,17 +122,13 @@ public class Diver : MonoBehaviour
             inSubRange = true;
         }
     }
+
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Sub"))
         {
             inSubRange = false;
         }
-    }
-
-    private void Collect(GameObject collectable)
-    {
-        points++;
     }
 
     private void ResetJustSwappedBool()

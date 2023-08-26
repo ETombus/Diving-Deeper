@@ -69,6 +69,7 @@ public class Submarine : MonoBehaviour
     public void SetSubCamera()
     {
         visibility.transform.parent = transform;
+        visibility.transform.localPosition = new Vector3(0, 0, 0);
 
         cam.transform.parent = transform;
         cam.transform.localPosition = new Vector3(0, 0, -10);
