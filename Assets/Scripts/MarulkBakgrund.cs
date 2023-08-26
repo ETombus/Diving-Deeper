@@ -34,7 +34,7 @@ public class MarulkBakgrund : MonoBehaviour
 
         removeTimer = Random.Range(30, 60);
         movingRight = !movingRight;
-        float yPos = Mathf.Clamp(subPos.y, -20f, 120f);
+        float yPos = Mathf.Clamp(subPos.y, -120f, -20f);
 
         if (movingRight)
         {
