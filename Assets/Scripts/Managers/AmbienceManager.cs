@@ -21,7 +21,8 @@ public class AmbienceManager : MonoBehaviour
     {
         track1 = gameObject.AddComponent<AudioSource>();
         track2 = gameObject.AddComponent<AudioSource>();
-
+        track1.loop = true;
+        track2.loop = true;
         track1.outputAudioMixerGroup = (Resources.Load("MainMixer") as AudioMixer).FindMatchingGroups("SFX")[0];
         track2.outputAudioMixerGroup = (Resources.Load("MainMixer") as AudioMixer).FindMatchingGroups("SFX")[0];
 
