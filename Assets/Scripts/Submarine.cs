@@ -8,11 +8,12 @@ public class Submarine : MonoBehaviour
 {
     [SerializeField] private Diver diverScript;
     [SerializeField] private GameObject visibility;
+    [SerializeField] private GameObject visibleSub;
+    [SerializeField] private SubLight subLight;
 
     private Camera cam;
     private Rigidbody2D rb;
     private Animator animator;
-    private SpriteRenderer spriteRenderer;
 
     private Vector2 dir;
     private float speed = 5;
@@ -28,7 +29,6 @@ public class Submarine : MonoBehaviour
 
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     void Update()
@@ -42,9 +42,17 @@ public class Submarine : MonoBehaviour
             ClampVelocity();
 
             if (dir.x < 0)
-                spriteRenderer.flipX = true;
+            {
+                visibleSub.transform.eulerAngles = new Vector3(0, 180, 0);
+                subLight.minAngle = 150;
+                subLight.maxAngle = 300;
+            }
             else if (dir.x > 0)
-                spriteRenderer.flipX = false;
+            {
+                visibleSub.transform.eulerAngles = new Vector3(0, 0, 0);
+                subLight.minAngle = -40;
+                subLight.maxAngle = 130;
+            }
 
             if (Input.GetKeyDown(KeyCode.E) && !justSwapped)
             {
