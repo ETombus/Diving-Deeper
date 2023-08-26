@@ -24,7 +24,7 @@ public class Diver : MonoBehaviour
     public int points = 0;
 
     private Vector2 rotation;
-    private float maxVelocity = 1.5f;
+    private float maxVelocity = 4f;
     private float rotationSpeed = 5f;
     private float swimTimer;
 
@@ -78,7 +78,7 @@ public class Diver : MonoBehaviour
                 subScript.SetSubCamera();
                 rb.velocity = Vector3.zero;
                 GameObject.Find("FadeInOutCanvas").GetComponent<FadeInOutScript>().IsDrowning(false);
-                Invoke(nameof(ResetJustSwappedBool), 0.3f);
+                Invoke(nameof(ResetJustSwappedBool), 0.9f);
             }
 
             if (swimTimer > 0.3f)
