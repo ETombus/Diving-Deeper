@@ -85,7 +85,7 @@ public class Diver : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Collectable"))
         {
-            points++;
+            PointMaster.Instance.PointUp();
             Destroy(radarDic[collision.gameObject]);
             Destroy(collision.gameObject);
         }

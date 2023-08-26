@@ -214,7 +214,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53583ccb182f58f41ad073a2e7289d36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  diverScript: {fileID: 0}
+  visibility: {fileID: 0}
   isDead: 0
+  isSwimming: 0
+  justSwapped: 0
 --- !u!212 &412671652
 SpriteRenderer:
   m_ObjectHideFlags: 0

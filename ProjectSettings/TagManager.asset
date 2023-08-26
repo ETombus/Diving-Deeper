@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Collectable
   - Sub
+  - Wall
   layers:
   - Default
   - TransparentFX

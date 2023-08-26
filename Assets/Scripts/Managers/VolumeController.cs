@@ -8,8 +8,6 @@ public class VolumeController : MonoBehaviour
 {
     [SerializeField] private Slider sfxSlider;
     [SerializeField] private Slider musicSlider;
-    [SerializeField] private AudioMixerGroup sfxGroup;
-    [SerializeField] private AudioClip musicGroup;
 
     private void Start()
     {
