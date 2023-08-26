@@ -52,7 +52,6 @@ public class RotateObject : MonoBehaviour
         {
             // Snap to the exact target rotation or the start rotation if stopping
             transform.rotation = targetRot;
-            isRotating = false; // Stop the rotation
         }
     }
 }
