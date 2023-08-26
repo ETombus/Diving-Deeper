@@ -99,7 +99,7 @@ GameObject:
   - component: {fileID: 1238372065}
   - component: {fileID: 1238372069}
   m_Layer: 0
-  m_Name: Angler
+  m_Name: Get
   m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
