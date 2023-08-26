@@ -29,12 +29,12 @@ public class FishSwarm : MonoBehaviour
         removeTimer = Random.Range(10, 20);
         movingRight = !movingRight;
         float yPos = Mathf.Clamp(subPos.y, -120f, -5f);
-        Debug.Log(yPos);
+        float xPos = subPos.x + Random.Range(-5, 5);
 
         if (movingRight)
         {
             transform.position = new Vector2(subPos.x - 6, yPos);
-            foreach(SpriteRenderer fishSR in transform.GetComponentsInChildren<SpriteRenderer>())
+            foreach (SpriteRenderer fishSR in transform.GetComponentsInChildren<SpriteRenderer>())
             {
                 fishSR.flipX = false;
             }

@@ -9,6 +9,7 @@ public class Diver : MonoBehaviour
     [SerializeField] private Submarine subScript;
     [SerializeField] private GameObject visibleDiver;
     [SerializeField] private GameObject visibility;
+    [SerializeField] private Sprite[] swimmingSprites;
 
     [SerializeField] private List<GameObject> radarSquares = new List<GameObject>();
     [SerializeField] private List<GameObject> radarDots = new List<GameObject>();
@@ -25,6 +26,7 @@ public class Diver : MonoBehaviour
     private Vector2 rotation;
     private float maxVelocity = 1.5f;
     private float rotationSpeed = 5f;
+    private float swimTimer;
 
     void Start()
     {
@@ -56,6 +58,7 @@ public class Diver : MonoBehaviour
 
             if (Input.GetKeyDown("space"))
             {
+                spriteRenderer.sprite = swimmingSprites[1];
                 Vector2 force = (visibleDiver.transform.rotation * Vector2.up) * 3f;
                 rb.AddForce(force, ForceMode2D.Force);
             }
@@ -64,9 +67,10 @@ public class Diver : MonoBehaviour
             float y = Mathf.Clamp(rb.velocity.y, -maxVelocity, maxVelocity);
             rb.velocity = new Vector2(x, y);
 
-
-            if (Input.GetKeyDown(KeyCode.E) && Vector2.Distance(subScript.transform.position, transform.position) < 1f && !subScript.justSwapped)
+            swimTimer += Time.deltaTime;
+            if (Input.GetKeyDown(KeyCode.E) && Vector2.Distance(subScript.transform.position, transform.position) < 1f && !subScript.justSwapped && swimTimer < 0.3f)
             {
+                swimTimer = 0f;
                 subScript.justSwapped = true;
                 subScript.isSwimming = false;
                 spriteRenderer.enabled = false;
@@ -74,8 +78,9 @@ public class Diver : MonoBehaviour
                 rb.velocity = Vector3.zero;
                 GameObject.Find("FadeInOutCanvas").GetComponent<FadeInOutScript>().IsDrowning(false);
                 Invoke(nameof(ResetJustSwappedBool), 0.3f);
-
             }
+
+            spriteRenderer.sprite = swimmingSprites[0];
         }
     }
 
