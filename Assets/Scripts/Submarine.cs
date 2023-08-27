@@ -9,7 +9,6 @@ public class Submarine : MonoBehaviour
     [SerializeField] private Diver diverScript;
     [SerializeField] private GameObject visibility;
     [SerializeField] private GameObject visibleSub;
-    [SerializeField] private SubLight subLight;
 
     private Camera cam;
     private Rigidbody2D rb;
