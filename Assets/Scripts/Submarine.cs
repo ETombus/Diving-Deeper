@@ -15,7 +15,7 @@ public class Submarine : MonoBehaviour
     private Rigidbody2D rb;
     private Animator animator;
 
-    private Vector2 dir;
+    public Vector2 dir;
     private float speed = 5;
     private float maxVelocity = 15f;
 
@@ -44,14 +44,12 @@ public class Submarine : MonoBehaviour
             if (dir.x < 0)
             {
                 visibleSub.transform.eulerAngles = new Vector3(0, 180, 0);
-                subLight.minAngle = 150;
-                subLight.maxAngle = 300;
+
             }
             else if (dir.x > 0)
             {
                 visibleSub.transform.eulerAngles = new Vector3(0, 0, 0);
-                subLight.minAngle = -40;
-                subLight.maxAngle = 130;
+
             }
 
             if (Input.GetKeyDown(KeyCode.E) && !justSwapped)
