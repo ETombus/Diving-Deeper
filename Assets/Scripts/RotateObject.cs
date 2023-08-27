@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class RotateObject : MonoBehaviour
 {
@@ -9,6 +10,9 @@ public class RotateObject : MonoBehaviour
     private Quaternion startRotation;
     private Quaternion targetQuaternion;
     private bool isRotating = false;
+
+    [SerializeField]
+    private UnityEvent onRotationComplete; // Event triggered when rotation reaches the target
 
     public enum RotationDirection
     {
@@ -52,6 +56,12 @@ public class RotateObject : MonoBehaviour
         {
             // Snap to the exact target rotation or the start rotation if stopping
             transform.rotation = targetRot;
+
+            if (Quaternion.Angle(transform.rotation, targetQuaternion) <= 0.01f)
+            {
+                onRotationComplete.Invoke();
+                transform.rotation = startRotation;
+            }
         }
     }
 }
