@@ -6,11 +6,6 @@ public class SubLight : MonoBehaviour
 {
     private Submarine subScript;
 
-    public float minAngle = -40;
-    public float maxAngle = 130;
-    public float startAngle = -40;
-    public float endAngle = 130;
-
     private void Start()
     {
         subScript = GetComponentInParent<Submarine>();
@@ -25,8 +20,6 @@ public class SubLight : MonoBehaviour
 
             Vector3 direction = mousePos - transform.position;
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg + 50;
-
-
 
             transform.rotation = Quaternion.Euler(0, 0, angle);
         }
