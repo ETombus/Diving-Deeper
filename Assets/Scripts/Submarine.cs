@@ -82,7 +82,7 @@ public class Submarine : MonoBehaviour
     public void Died()
     {
         isDead = true;
-        GetComponent<SpriteRenderer>().sprite = null;
+        visibleSub.GetComponent<SpriteRenderer>().sprite = null;
         GetComponent<Collider2D>().isTrigger = true;
         animator.SetTrigger("Implosion");
         SoundManager.PlaySound(SoundManager.Sound.Implosion);
