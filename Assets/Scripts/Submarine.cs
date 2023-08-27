@@ -9,7 +9,6 @@ public class Submarine : MonoBehaviour
     [SerializeField] private Diver diverScript;
     [SerializeField] private GameObject visibility;
     [SerializeField] private GameObject visibleSub;
-    [SerializeField] private SubLight subLight;
 
     private Camera cam;
     private Rigidbody2D rb;
@@ -83,7 +82,7 @@ public class Submarine : MonoBehaviour
     public void Died()
     {
         isDead = true;
-        GetComponent<SpriteRenderer>().sprite = null;
+        visibleSub.GetComponent<SpriteRenderer>().sprite = null;
         GetComponent<Collider2D>().isTrigger = true;
         animator.SetTrigger("Implosion");
         SoundManager.PlaySound(SoundManager.Sound.Implosion);
